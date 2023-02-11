@@ -1,2 +1,3 @@
 # components-good-practices
-Good practices and creational patterns for components
+Welcome to mi repo.
+This repo is intended to be a place to recap info about good practices and creational patterns to build reusable components
