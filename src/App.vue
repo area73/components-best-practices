@@ -5,17 +5,18 @@ import HelloWorld from "./components/HelloWorld.vue";
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
+    <div class="wrapper">
+      <img
+        alt="Vue logo"
+        class="logo"
+        src="@/assets/logo.svg"
+        width="25"
+        height="25"
+      />
+      <h1 class="title">Component's best practice</h1>
+    </div>
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -26,22 +27,27 @@ import HelloWorld from "./components/HelloWorld.vue";
   <RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   line-height: 1.5;
   max-height: 100vh;
 }
 
+.title {
+  display: inline;
+  font-size: x-large;
+}
+
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  // display: block;
+  margin: 0 1rem;
 }
 
 nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 nav a.router-link-exact-active {
@@ -62,21 +68,30 @@ nav a:first-of-type {
   border: 0;
 }
 
+header .wrapper {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, max-content);
+  width: fit-content;
+  margin: 0 auto;
+}
+
 @media (min-width: 1024px) {
   header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    display: grid;
+    grid-template-rows: min-content auto;
+    align-items: start;
+    padding-bottom: 1rem;
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    margin: 0 1rem 0 0;
   }
 
   header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    align-items: center;
+    width: 100%;
   }
 
   nav {
