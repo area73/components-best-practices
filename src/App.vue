@@ -29,6 +29,12 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style lang="scss">
+// incluimos aquí el css base para no alterar la especificidad.
+// si se añade en el import del main.ts slos estilos se añadirían
+// al final de todos por debajo de los componentes no dinámicos con lo
+// que tendríamos problemas de especificidad
+@use "./assets/main.css";
+
 header {
   line-height: 1.5;
   max-height: 100vh;
