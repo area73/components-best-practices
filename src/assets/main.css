@@ -5,6 +5,11 @@
 @tailwind utilities;
 
 
+
+.CoNtEnT {
+  background-color: blue;
+}
+
 #app {
   max-width: 1280px;
   margin: 0;

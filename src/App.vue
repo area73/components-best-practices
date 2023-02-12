@@ -19,11 +19,13 @@ import { RouterLink, RouterView } from "vue-router";
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/usar-la-plataforma">Usar la plataforma</RouterLink>
       </nav>
     </div>
   </header>
-
-  <RouterView />
+  <section>
+    <RouterView />
+  </section>
 </template>
 
 <style lang="scss">
@@ -97,9 +99,10 @@ header .wrapper {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
-
     padding: 1rem 0;
     margin-top: 1rem;
+    display: grid;
+    width: auto;
   }
 }
 </style>

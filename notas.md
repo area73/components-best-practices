@@ -1,6 +1,6 @@
 # Usar la plataforma
 -. intentar seguir los standards
--. Usar nombres de componentes familiares y que tengan relación con elementos HTML. Poner un ejemplode un componente <a73-boton> y un elemento <boton>
+-. Usar nombres de componentes familiares y que tengan relación con elementos HTML. Poner un ejemplo de un componente <a73-boton> y un elemento <boton>
 -. Intentar usar nombres comunes para los atributos (props), por ejemplo si tenemos un avatar en vez de usar url como atributo usar src que es lo que se una en una etiqueta img
 -. Menos props y más slots: Usar siempre que se pueda estrcutura con slots / children. Puedo poner el ejemplo de un avatar circular en done el children es la imagen para meter una image un video etc o texto con ellipsis
 
