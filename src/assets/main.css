@@ -16,6 +16,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  padding-bottom: 0.5em;
+}
+
+
 
 
 #app {
