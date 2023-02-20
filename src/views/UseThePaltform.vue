@@ -15,6 +15,9 @@ import IconTooling from "@/components/icons/IconTooling.vue";
       <li>Usar nombres de componentes familiares</li>
       <li>usar nombres comunes para los atributos</li>
       <li>menos props y más slots</li>
+      <li>componentes al 100% siempre</li>
+      <li>no usar márgenes</li>
+      <li>no definir position absolute / relative</li>
     </ol>
   </div>
   <div class="p-4">

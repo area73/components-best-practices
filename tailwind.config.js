@@ -8,6 +8,7 @@ module.exports = {
       gridTemplateColumns: {
         // Complex site-specific column configuration
         comparation: "min-content repeat(2, minmax(0, 1fr))",
+        avatar: "min-content auto",
       },
     },
   },

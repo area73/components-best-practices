@@ -18,8 +18,8 @@ import { RouterLink, RouterView } from "vue-router";
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/usar-la-plataforma">Usar la plataforma</RouterLink>
+        <RouterLink to="/singel">Single Element Patter</RouterLink>
       </nav>
     </div>
   </header>
