@@ -18,6 +18,7 @@ import IconTooling from "@/components/icons/IconTooling.vue";
       <li>componentes al 100% siempre</li>
       <li>no usar márgenes</li>
       <li>no definir position absolute / relative</li>
+      <li>separar los estilos de la estrcutura (BEM)</li>
     </ol>
   </div>
   <div class="p-4">
@@ -38,7 +39,7 @@ import IconTooling from "@/components/icons/IconTooling.vue";
         <bv-action text="WTF" />
       </div>
       <div class="p-4 bg-green-200">
-        <bv-button> Allright </bv-button>
+        <bv-button> Alright </bv-button>
       </div>
       <div>3</div>
       <div class="bg-red-100 p-4">
