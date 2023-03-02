@@ -11,7 +11,7 @@ const props = defineProps<{
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .bv-card {
   @apply border-2 border-neutral-800 bg-white;
   @apply hover:shadow-xl hover:shadow-indigo-400 hover:cursor-pointer hover:outline-2 hover:outline-cyan-700;

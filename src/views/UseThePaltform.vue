@@ -10,6 +10,7 @@ import IconTooling from "@/components/icons/IconTooling.vue";
 <template>
   <h2 class="py-3 text-lg">Usar la plataforma</h2>
   <div class="p-4">
+    <h2>Buenas prácticas</h2>
     <ol class="list-decimal">
       <li>intentar seguir los standards</li>
       <li>Usar nombres de componentes familiares</li>
@@ -21,6 +22,25 @@ import IconTooling from "@/components/icons/IconTooling.vue";
       <li>separar los estilos de la estrcutura (BEM)</li>
     </ol>
   </div>
+  <div class="p-4">
+    <h2>Single Element Pattern</h2>
+    <ol class="list-decimal">
+      <li>
+        ¿Qué pasa si tengo que pasar propiedades a elementos anidados
+        internamente?
+      </li>
+      <li>¿Romperá mi componente la web?</li>
+      <li>
+        ¿Cómo hago para pasar atributos de HTML al componente (id, data-*)
+      </li>
+      <li>
+        ¿puedo estilizar el componmente pasándole una clase o una propiedad de
+        estilo?
+      </li>
+      <li>¿cómo se mnanejan los eventos?</li>
+    </ol>
+  </div>
+
   <div class="p-4">
     <p>
       Intentar usar la nomenclatura que ya conocemos y que es un estandar para

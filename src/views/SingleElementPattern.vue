@@ -1,22 +1,9 @@
 <script setup lang="ts">
 import bvCardKo from "@/components/bvCardKo.vue";
+import bvCard from "@/components/card/bvCard.vue";
+import bvComposedPolymorphic from "@/components/card/bvComposedPolymorphic.vue";
 </script>
 <template>
-  <h3>Referencias</h3>
-  <ul>
-    <li>
-      <a
-        href="https://www.freecodecamp.org/news/introducing-the-single-element-pattern-dfbd2c295c5d/"
-        target="_blank"
-      >
-        Artículo
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/diegohaz/singel" target="_blank">repo</a>
-    </li>
-  </ul>
-
   <h3>Preguntas</h3>
 
   <ul>
@@ -54,6 +41,27 @@ import bvCardKo from "@/components/bvCardKo.vue";
         link="http://www.google.com"
       />
     </div>
-    <div class="p-4 bg-green-200"></div>
+    <div class="p-4 bg-green-200">
+      <bv-card :onClick="() => {}">
+        <template #header>
+          <h2>Building Components</h2>
+        </template>
+        <template #body
+          ><img src="/src/assets/lego-blocks.jpg" alt="main picture"
+        /></template>
+        <template #footer>
+          <bv-composed-polymorphic :as="'div'">
+            <template #leading>
+              <img
+                src="/src/assets/enjuto.png"
+                alt="avatar"
+                class="rounded-full"
+              />
+            </template>
+            <template #trailing>By Enjuto Mojamuto</template>
+          </bv-composed-polymorphic>
+        </template>
+      </bv-card>
+    </div>
   </div>
 </template>
