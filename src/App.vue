@@ -12,18 +12,18 @@ import { RouterLink, RouterView } from "vue-router";
         width="25"
         height="25"
       />
-      <h1 class="title">Component's best practice</h1>
+      <h1 class="title">Componentes: Buenas prácticas</h1>
     </div>
 
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/usar-la-plataforma">Usar la plataforma</RouterLink>
+        <a href="/slides/index.html" target="_blank">Slides</a>
+        <RouterLink to="hands-on-code">Hands on code</RouterLink>
+        <RouterLink to="/bibliography">Bibliografía</RouterLink>
       </nav>
     </div>
   </header>
-  <section>
+  <section class="pt-6">
     <RouterView />
   </section>
 </template>
@@ -38,6 +38,11 @@ import { RouterLink, RouterView } from "vue-router";
 header {
   line-height: 1.5;
   max-height: 100vh;
+  border-bottom: 1px solid #aaa;
+  display: grid;
+  grid-template-rows: min-content auto;
+  align-items: start;
+  padding-bottom: 1rem;
 }
 
 .title {
@@ -46,15 +51,19 @@ header {
 }
 
 .logo {
-  // display: block;
-  margin: 0 1rem;
+  margin: 0 1rem 0 0;
 }
 
 nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
+  text-align: left;
+  margin-left: -1rem;
+  font-size: 1rem;
+  padding: 1rem 0;
   margin-top: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+
+  width: auto;
 }
 
 nav a.router-link-exact-active {
@@ -76,39 +85,10 @@ nav a:first-of-type {
 }
 
 header .wrapper {
+  grid-template-columns: repeat(2, max-content);
+  margin: 0 auto;
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(2, max-content);
-  width: fit-content;
-  margin: 0 auto;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: grid;
-    grid-template-rows: min-content auto;
-    align-items: start;
-    padding-bottom: 1rem;
-  }
-
-  .logo {
-    margin: 0 1rem 0 0;
-  }
-
-  header .wrapper {
-    display: grid;
-    align-items: center;
-    width: 100%;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
-    display: grid;
-    width: auto;
-  }
+  width: 100%;
 }
 </style>
