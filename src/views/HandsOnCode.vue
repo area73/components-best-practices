@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import bvCardKo from "@/components/bvCardKo.vue";
-import bvCard from "@/components/card/bvCard.vue";
-import bvComposedPolymorphic from "@/components/card/bvComposedPolymorphic.vue";
 </script>
 <template>
   <div class="grid grid-cols-2 gap-4 p-4">
@@ -14,27 +12,6 @@ import bvComposedPolymorphic from "@/components/card/bvComposedPolymorphic.vue";
         link="http://www.google.com"
       />
     </div>
-    <div class="p-4 bg-green-200">
-      <bv-card :onClick="() => {}">
-        <template #header>
-          <h2>Building Components</h2>
-        </template>
-        <template #body
-          ><img src="/src/assets/lego-blocks.jpg" alt="main picture"
-        /></template>
-        <template #footer>
-          <bv-composed-polymorphic :as="'div'">
-            <template #leading>
-              <img
-                src="/src/assets/enjuto.png"
-                alt="avatar"
-                class="rounded-full"
-              />
-            </template>
-            <template #trailing>By Enjuto Mojamuto</template>
-          </bv-composed-polymorphic>
-        </template>
-      </bv-card>
-    </div>
+    <div class="p-4 bg-green-200">// TODO</div>
   </div>
 </template>
