@@ -1,40 +1,314 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<title>Componentes: Buenas prácticas</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<meta name="description" content="Buenas práctica para la creación de componentes reutilizables">
+	<meta name="author" content="Rodrigo Erades">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/league.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h5>diseñando componentes:</h5>
+				<h3>Patrones creacionales y buenas prácticas</h3>
+				<p style="color:cadetblue">Rodrigo Erades</p>
+			</section>
+			<section>
+				<section>
+					<h2>intentar seguir los estandares</h2>
+				</section>
+
+				<section>
+					<h3>Usar nombres de componentes familiares</h3>
+
+					<pre data-id="code-animation" class="fragment">
+							<code class="hljs javascript" data-trim data-line-numbers="|1-4|6-21|12-14|16-21">
+								<script type="text/template">
+									// page
+									...
+									<Action text="Whaaat" />
+									...
+
+									// Action.vue
+									<scr setup lang="ts">
+										const props = defineProps<{
+											text: string;
+										}>();
+									</scr>
+									<template>
+											<button type="button" class="btn">{{ text }}</button>
+										</template>
+
+										<style>
+										.btn {
+											@apply border-2 rounded-lg text-gray-50 font-bold border-cyan-500 bg-cyan-400 px-4 py-1;
+											@apply hover:bg-cyan-600;
+										}
+										</style>
+								</script>
+						</code>
+					</pre>
+
+
+					<aside class="notes">
+						<ul>
+							<li>EL nombre no es estandard (usar - )</li>
+							<li>El nombre no nos dice nada tenemos que ver la implementación</li>
+							<li>El body se pasa como prop ¿?</li>
+						</ul>
+					</aside>
+
+				</section>
+
+				<section>
+					<h3>usar nombres comunes para los atributos</h3>
+					<pre data-id="code-animation" class="fragment">
+							<code class="hljs javascript" data-trim data-line-numbers="3|7-11|12-14|24">
+								<script type="text/template">
+									// main
+									...
+									<bv-link url="http://belvo.com">this is a link</bv-link>
+									...
+
+									// bv-link.vue
+									<scr setup lang="ts">
+										const props = defineProps<{
+											url: string;
+										}>();
+										</scr>
+										<template>
+											<a class="link" :href="url"> <slot></slot> </a>
+										</template>
+
+										<style>
+										.link {
+											@apply text-green-600 underline;
+											@apply hover:bg-green-300;
+											@apply focus:outline-4 focus:outline-double focus:outline-purple-600;
+										}
+										</style>
+
+									<bv-link href="http://belvo.com">this is a link</bv-link>
+
+								</script>
+							</code>
+					</pre>
+				</section>
+
+				<section data-auto-animate>
+					<h3>menos props y más slots</h3>
+					<pre data-id="code-animation" class="fragment">
+<code class="hljs javascript">
+	<script type="text/template">
+		<bv-button text="Whaaat" />
+	</script>
+</code>
+				</pre>
+				</section>
+
+				<section data-auto-animate>
+					<h3>menos props y más slots</h3>
+					<pre data-id="code-animation" class="fragment">
+<code class="hljs javascript">
+	<script type="text/template">
+		<bv-button> Whaaat</bv-button>
+	</script>
+</code>
+				</pre>
+				</section>
+				<section>
+					<div class="fragment" style="display: grid; grid-template-columns: 2fr 1fr;">
+						<div>
+							<pre data-id="code-animation">
+<code class="hljs javascript" data-trim data-line-numbers="1|2|3|4|5|6">
+	<script type="text/template">
+		<bv-testimonial
+			name="Jon Doe"
+			position=" FE Engineer"
+			testimony= "Lorem ipsum dolo"
+			thumbnail="/assets/jondoe.png"
+			bg-color="turquoise"
+		/>
+	</script>
+</code>
+</pre>
+						</div>
+						<div>
+							<img src="./assets/testimonial.png" alt="testimonial">
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>componentes al 100% siempre</h2>
+				</section>
+				<section>
+					<img src="./assets/input.png">
+				</section>
+				<section>
+					<img src="./assets/btn1.png">
+					<img src="./assets/btn2.png">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>no usar márgenes</h2>
+				</section>
+				<section>
+					<img src="./assets/input-med.png" alt="">
+					<img src="./assets/input-small.png" alt="">
+				</section>
+			</section>
+
+			<section>
+				<h2 class="r-fit-text">no definir position absolute / relative</h2>
+			</section>
+
+			<section>
+				<section>
+					<h2 class="r-fit-text">separar los estilos de la estructura (BEM)</h2>
+				</section>
+				<section>
+					<pre data-id="code-animation">
+<code class="hljs javascript" data-trim data-line-numbers="1-8|9-19">
+<script type="text/template">
+<template>
+	<div class="testimonial testimonial--secondary">
+		<div class="testimonial__name"><slot name="userName" /></div>
+		<div class="testimonial__position"><slot name="position" /></div>
+		<div class="testimonial__testimony"><slot name="testimony" /></div>
+		<img class="testimonial__avatar :src="thumbnail" />
+	</div>
+</template>
+	<style>
+		/* Block */
+		.testimonial {}
+		/* Element */
+		.testimonial__name {}
+		.testimonial__position {}
+		.testimonial__testimony {}
+		.testimonial_avatar {}
+		/* Modifier */
+		.testimonial--secondary {}
+	</style>
+	</script>
+</code>
+</pre>
+				</section>
+			</section>
+
+			<section>
+				<section id="fragments">
+					<h2>Single Element Pattern</h2>
+					<p><span style="color:cadetblue">by Diego Haz</span></p>
+				</section>
+
+				<section>
+					<h3>¿Qué pasa si tengo que pasar propiedades a elementos anidados internamente?</h3>
+					<section class="fragment">
+						<p style="color:cadetblue">Renderiza sólo un elemento por componente</p>
+					</section>
+				</section>
+
+				<section>
+					<h3>¿Romperá mi componente la web?</h3>
+					<ul>
+						<li style="color:cadetblue">Usa tipado fierte para tus props</li>
+						<li style="color:cadetblue" class="r-fit-text">Utiliza optional chaining y guardas (obj.val?.prop) (val ||
+							0)
+						</li>
+						<li style="color:cadetblue">Utiliza TypeScript</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h3>¿Cómo hago para pasar atributos de HTML al componente (id, data-*)</h3>
+					<p style="color:cadetblue" class="r-fit-text">en React es explícito, tendremos que usar un tipo como:</p>
+					<pre data-id="code-animation">
+						<code class="hljs javascript">
+<script type="text/template">
+	type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
+</script>
+					</code>
+				</pre>
+
+					<p style="color:cadetblue"> En Vue es implicito y no necesito declarar los atributos</p>
+				</section>
+
+				<section>
+					<h3>¿puedo estilizar el componmente pasándole una clase o una propiedad de estilo?</h3>
+					<p style="color:cadetblue">Siempre "mergea" las classes o los estilos</p>
+				</section>
+
+				<section>
+					<h3>¿cómo se manejan los eventos?</h3>
+					<p style="color:cadetblue">Siempre se pasan como props</p>
+					<pre data-id="code-animation">
+<code class="hljs javascript" data-trim data-line-numbers="|3|7">
+	<script type="text/template">
+		<scr setup lang="ts">
+			const props = defineProps<{
+				onClick: (ev: MouseEvent) => void;
+			}>();
+			</scr>
+			<template>
+				<div class="bv-card" @click="(ev:MouseEvent) => props.onClick">
+					<div class="bv-card__header"><slot name="header" /></div>
+					<div class="bv-card__body"><slot name="body" /></div>
+
+
+	</script>
+</code>
+				</pre>
+				</section>
+			</section>
+
+			<section>
+				<h2>Show me some code</h2>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+	<script type="module">
+		import Reveal from "./dist/reveal.esm.js";
+		import Editor from "./plugin/editor/editor.esm.js";
+		import RevealHighlight from "./plugin/highlight/highlight.esm.js";
+		import RevealMarkdown from "./plugin/markdown/markdown.esm.js";
+		import RevealNotes from "./plugin/notes/notes.esm.js";
+		import RevealSearch from "./plugin/search/search.esm.js";
+		import RevealZoom from "./plugin/zoom/zoom.esm.js";
+
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, Editor]
+		});
+	</script>
+</body>
+
 </html>
