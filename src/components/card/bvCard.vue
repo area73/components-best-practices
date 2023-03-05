@@ -20,6 +20,7 @@ const props = defineProps<{
     @apply font-bold text-lg p-6 text-center;
   }
   &__body {
+    @apply border-y;
   }
 
   &__footer {
